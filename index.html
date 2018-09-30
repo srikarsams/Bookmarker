@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BookMarker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="fetchBookmarks()">
+    <div id="wrapper">
+        <div id="container">
+            <section class="input">
+                <div class="one">
+                    <input type="text" name='name' autocomplete="off" id ='name' required>
+                    <span></span>
+                    <label for="name">Website name</label>
+                </div>
+                <div class="one">
+                    <input type="text" name='url' autocomplete="off" id='url' required>
+                    <span></span>
+                    <label for="url">Website Url</label>
+                </div>
+            </section>
+            <div class="button">
+                <a href="">Submit</a>
+            </div>
+            <div class="sites"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
