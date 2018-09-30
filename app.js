@@ -5,7 +5,7 @@ document.querySelector('.button').addEventListener('click', addBookmark);
 function addBookmark(e) {
     var name = document.getElementById('name').value;
     var url = document.getElementById('url').value;
-
+    var res = true;
     // Creating object using the input data
     var bookmark = {
         name: name,
@@ -22,7 +22,21 @@ function addBookmark(e) {
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
     }else{
         bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-        bookmarks.push(bookmark);
+        bookmarks.forEach(function(x){
+            if(x.url === bookmark.url){
+                alert('Bookmark already exists. Here is the name of the bookmark: ' + x.name);
+                res = false;
+            }
+        })
+        if(!res){
+            fetchBookmarks();
+            bookmark = '';
+            return false;
+        }
+        if (bookmark){
+            bookmarks.push(bookmark);
+        }
+        
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
     }
 
