@@ -41,6 +41,23 @@ input
     box-shadow: 0px 4px 5px 0px rgba(0,0,0,.1);
 }
 
+#search
+{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
+    border-bottom: 3px solid lightgray;
+    border-radius: 0;
+    font-size: 1.5rem;
+}
+
+.search label
+{
+    background: none;
+    font-size: 1.5rem;
+}
+
 label
 {
     position: absolute;
@@ -57,7 +74,8 @@ label
 .one
 {
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
+    margin-top: 40px;
 }
 
 
@@ -71,6 +89,17 @@ input:valid ~ label
     opacity: 1;
     color: #01c1da;
     font-weight: 600;
+}
+
+#search:focus ~ label,
+#search:valid ~ label
+{
+    display: none;
+}
+
+.hide
+{
+    display: none;
 }
 
 input:focus
@@ -95,6 +124,11 @@ span
 input:focus + span
 {
     width: 62.4%;
+}
+
+#search:focus + span
+{
+    width: 0;
 }
 
 .button
@@ -127,6 +161,11 @@ a
     display: block;
     height: 50px;
     width: 150px;
+}
+
+.search
+{
+    margin-top: 50px;
 }
 
 .sites
