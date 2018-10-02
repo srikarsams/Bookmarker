@@ -53,13 +53,17 @@ function addBookmark(e) {
 
 function fetchBookmarks() {
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    if(!bookmarks){
+        return false;
+    }
+    var time=300;
     var html = '';
     document.querySelector('.sites').innerHTML = '';
     bookmarks.forEach(function(x) {
-        html = '<div class="site"><h2>'+ x.name +'</h2><a href="' + x.url +'" class="visit act" target="_blank">Visit</a><a href="#" onclick="deleteBookmark(\''+x.url+'\')" class="delete act">Delete</a></div>';
+        time += 200
+        html = '<div class="site"   ><h2>'+ x.name +'</h2><a href="' + x.url +'" class="visit act" target="_blank">Visit</a><a href="#" onclick="deleteBookmark(\''+x.url+'\')" class="delete act">Delete</a></div>';
         document.querySelector('.sites').innerHTML += html;
     })
-    
      
 }
 
@@ -95,3 +99,38 @@ function validateForm(name, url) {
     }
     return true;
 }
+
+// Searching for bookmarks
+
+
+
+var searchQuery = document.getElementById('search');
+var searchLabel = document.querySelector('.searchlabel');
+// Reading the search query
+var query = searchQuery.value.toUpperCase();
+searchQuery.addEventListener('click', function() {
+    if (query){
+        searchLabel.classList.add('hide');
+    }else{
+        searchLabel.classList.remove('hide');
+    }
+    
+})
+
+searchQuery.addEventListener('keyup',function (){
+    query = searchQuery.value.toUpperCase()
+    console.log(query);
+    // Get all the saved bookmarks
+    var list = document.querySelectorAll('.site');
+    console.log(list)
+    // Loop over the bookmarks and display the relevant bookmarks
+    for(var i=0;i<list.length;i++){
+        var queries = list[i].getElementsByTagName('h2')[0];
+        console.log(queries.innerHTML)
+        if(queries.innerHTML.toUpperCase().indexOf(query) > -1){
+            list[i].classList.remove('hide');
+        }else{
+            list[i].classList.add('hide');
+        }
+    }
+})
