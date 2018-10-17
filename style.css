@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Permanent+Marker');
 *
 {
     margin: 0;
@@ -6,6 +7,8 @@
     font-family: 'Montserrat', sans-serif;
     background: #DAE7E9;
     box-sizing: border-box;
+
+    scroll-behavior: smooth;
 }
 
 #wrapper
@@ -16,9 +19,10 @@
 #container
 {
     width: 800px;
-    margin: 120px auto;
+    margin: 60px auto;
     overflow: hidden;
     clear: both;
+    scroll-behavior: smooth;
 }
 
 input
@@ -223,3 +227,16 @@ h2
 {
     top: 2px;
 }
+
+h1
+{
+    font-family: 'Pacifico', cursive;
+    /* font-family: 'Permanent Marker', cursive; */
+    font-size: 6rem;
+    text-transform: lowercase;
+    color: #01c1da;
+    transform: skew(-5deg, -5deg) rotate(5deg);
+    transform-origin: center center;
+    text-align: center;
+}
+
